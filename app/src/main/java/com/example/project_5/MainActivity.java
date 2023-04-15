@@ -1,5 +1,7 @@
 package com.example.project_5;
 
+import android.view.View;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
