@@ -13,6 +13,26 @@
             android:theme="@style/Theme.Project5"
             tools:targetApi="31">
         <activity
+                android:name=".StoreOrderActivity"
+                android:label="This is the StoreOrder activity"
+                android:parentActivityName=".MainActivity"
+                android:exported="false" />
+        <activity
+                android:name=".OrderActivity"
+                android:label="This is the Order activity"
+                android:parentActivityName=".MainActivity"
+                android:exported="false" />
+        <activity
+                android:name=".DonutActivity"
+                android:label="This is the Donut activity"
+                android:parentActivityName=".MainActivity"
+                android:exported="false" />
+        <activity
+                android:name=".CoffeeActivity"
+                android:label="This is the Coffee activity"
+                android:parentActivityName=".MainActivity"
+                android:exported="false" />
+        <activity
                 android:name=".MainActivity"
                 android:exported="true">
             <intent-filter>

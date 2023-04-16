@@ -9,6 +9,7 @@
 
     <Button
             android:text="Order Coffee"
+            android:onClick="showCoffeeActivity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/orderCoffee"
             android:visibility="visible"
@@ -18,6 +19,7 @@
             android:layout_marginBottom="372dp"/>
     <Button
             android:text="Order Donuts"
+            android:onClick="showDonutActivity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/orderDonuts"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -26,6 +28,7 @@
             android:layout_marginBottom="372dp"/>
     <Button
             android:text="Your Order"
+            android:onClick="showOrderActivity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/yourOrder"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -34,6 +37,7 @@
             android:layout_marginBottom="152dp"/>
     <Button
             android:text="Store Order"
+            android:onClick="showStoreOrderActivity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/storeOrder"
             app:layout_constraintBottom_toBottomOf="parent"
