@@ -6,21 +6,91 @@
                                                    android:layout_height="match_parent"
                                                    tools:context=".DonutActivity">
 
-    <EditText
-            android:id="@+id/tv_showData"
-            android:layout_width="402dp"
-            android:layout_height="97dp"
-            android:background="@android:color/holo_green_light"
-            android:ems="10"
-            android:gravity="center"
-            android:inputType="textPersonName"
-            android:text="Hello Donut Activity"
-            android:textSize="24sp"
-            android:textStyle="bold"
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="115dp"
+            android:layout_height="245dp" app:layout_constraintHorizontal_bias="0.914"
+            android:layout_marginBottom="116dp"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.444"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.365" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="116dp"
+            android:layout_height="246dp" app:layout_constraintHorizontal_bias="0.065"
+            android:layout_marginBottom="116dp"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+    <Button
+            android:text="@string/add_donut"
+            android:layout_width="55dp"
+            android:layout_height="49dp" android:id="@+id/removedonut"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" app:layout_constraintHorizontal_bias="0.501"
+            android:layout_marginBottom="264dp"/>
+    <Button
+            android:text="@string/remove_donut"
+            android:layout_width="55dp"
+            android:layout_height="49dp" android:id="@+id/adddonut"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" app:layout_constraintHorizontal_bias="0.501"
+            android:layout_marginBottom="156dp"/>
+    <ImageView
+            android:layout_width="141dp"
+            android:layout_height="128dp" app:srcCompat="@drawable/donut" android:id="@+id/imageView6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" app:layout_constraintHorizontal_bias="0.904"
+            android:layout_marginBottom="372dp"/>
+    <Spinner
+            android:layout_width="122dp"
+            android:layout_height="29dp" android:id="@+id/donuttype"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" app:layout_constraintHorizontal_bias="0.159"
+            android:layout_marginBottom="432dp"/>
+    <Spinner
+            android:layout_width="122dp"
+            android:layout_height="29dp" android:id="@+id/donutquantity"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" app:layout_constraintHorizontal_bias="0.159"
+            android:layout_marginBottom="384dp"/>
+    <TextView
+            android:text="$0.00"
+            android:layout_width="83dp"
+            android:layout_height="39dp" android:id="@+id/subtotalVal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" android:layout_marginBottom="40dp"
+            app:layout_constraintHorizontal_bias="0.364"/>
+    <TextView
+            android:text="Sub-total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/subtotal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" app:layout_constraintHorizontal_bias="0.052"
+            android:layout_marginBottom="52dp"/>
+    <Button
+            android:text="Add to Order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/addDonutToOrder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" app:layout_constraintHorizontal_bias="0.878"
+            android:layout_marginBottom="32dp"/>
+    <TextView
+            android:text="Ordering Donuts"
+            android:textSize="30dp"
+            android:textAlignment="center"
+            android:layout_width="225dp"
+            android:layout_height="48dp" android:id="@+id/orderingDonutsTitle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" app:layout_constraintHorizontal_bias="0.503"
+            android:layout_marginBottom="512dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
