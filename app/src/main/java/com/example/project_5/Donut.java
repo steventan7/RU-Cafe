@@ -18,6 +18,7 @@ public class Donut extends MenuItem{
     private String donutType;
     private int donutQuantity;
     private String donutFlavor;
+    private int donutImage;
 
     /**
      * Constructs a Donut instance for a donut order.
@@ -26,10 +27,11 @@ public class Donut extends MenuItem{
      * @param  donutFlavor  flavor of donut
      * @param  donutQuantity  number of donut type and flavor ordered
      */
-    public Donut(String donutType, String donutFlavor, int donutQuantity) {
+    public Donut(String donutType, String donutFlavor, int donutQuantity, int image) {
         this.donutType = donutType;
         this.donutFlavor = donutFlavor;
         this.donutQuantity = donutQuantity;
+        this.donutImage = image;
     }
 
     /**
@@ -70,6 +72,14 @@ public class Donut extends MenuItem{
      */
     public int donutQuantity() {
         return this.donutQuantity;
+    }
+
+    /**
+     * Retrieves the donut image of this Donut instance.
+     * @return int representing the donut image
+     */
+    public int donutImage() {
+        return this.donutImage;
     }
 
     /**
