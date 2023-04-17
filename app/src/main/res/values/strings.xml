@@ -2,17 +2,12 @@
     <string name="app_name">RUCafe</string>
     <string name="add_donut">\u003e</string>
     <string name="remove_donut">\u003c</string>
-    <string-array name="donutQuantity">
-        <item>1</item><item>2</item><item>3</item><item>4</item><item>5</item><item>6</item><item>7</item><item>8</item>
-        <item>9</item><item>10</item><item>11</item><item>12</item><item>13</item><item>14</item><item>15</item>
-        <item>16</item><item>17</item><item>18</item><item>19</item><item>20</item>
-    </string-array>
-    <string-array name="donutTypes">
+    <string-array name="donut_types">
         <item>Yeast Donut</item>
         <item>Cake Donut</item>
         <item>Donut Hole</item>
     </string-array>
-    <string-array name="yeastDonutFlavors">
+    <string-array name="yeast_donut_flavors">
         <item>Jelly</item>
         <item>Vanilla</item>
         <item>Cinnamon</item>
@@ -20,15 +15,14 @@
         <item>Blueberry</item>
         <item>Pumpkin Spice</item>
     </string-array>
-    <string-array name="cakeDonutFlavors">
+    <string-array name="cake_donut_flavors">
         <item>Chocolate</item>
         <item>Rainbow</item>
         <item>Sugar</item>
     </string-array>
-    <string-array name="donutHoleFlavors">
+    <string-array name="donut_hole_flavors">
         <item>Red Velvet</item>
         <item>Apple Fritter</item>
         <item>Powdered</item>
     </string-array>
-
 </resources>
