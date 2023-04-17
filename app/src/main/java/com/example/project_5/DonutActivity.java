@@ -13,7 +13,9 @@ import java.util.ArrayList;
  */
 public class DonutActivity extends AppCompatActivity {
     private ArrayList<Donut> listOfDonuts = new ArrayList<>();
-    private int[] donutImages = {R.drawable.cart,R.drawable.donut,R.drawable.donut};
+    private int[] donutImages = {R.drawable.donut,R.drawable.donut,R.drawable.donut, R.drawable.donut, R.drawable.donut,
+            R.drawable.donut,R.drawable.donut,R.drawable.donut,R.drawable.donut,R.drawable.donut,R.drawable.donut
+            ,R.drawable.donut,R.drawable.donut};
 
     /**
      * Get the references of all instances of Views defined in the layout file, set up the list of
@@ -36,8 +38,17 @@ public class DonutActivity extends AppCompatActivity {
      */
     private void setupMenuItems() {
         String [] donutNames = getResources().getStringArray(R.array.donut_types);
-        for (int i = 0; i < donutNames.length; i++) {
-            listOfDonuts.add(new Donut(donutNames[i], "Chocolate", 1, donutImages[i]));
+        String [] yeastDonutFlavors = getResources().getStringArray(R.array.yeast_donut_flavors);
+        String [] cakeDonutFlavors = getResources().getStringArray(R.array.cake_donut_flavors);
+        String [] holeDonutFlavors = getResources().getStringArray(R.array.donut_hole_flavors);
+        for (int i = 0; i < yeastDonutFlavors.length; i++) {
+            listOfDonuts.add(new Donut(donutNames[0], yeastDonutFlavors[i], 1, donutImages[i]));
+        }
+        for (int i = 0; i < yeastDonutFlavors.length; i++) {
+            listOfDonuts.add(new Donut(donutNames[1], yeastDonutFlavors[i], 1, donutImages[i]));
+        }
+        for (int i = 0; i < holeDonutFlavors.length; i++) {
+            listOfDonuts.add(new Donut(donutNames[2], holeDonutFlavors[i], 1, donutImages[i]));
         }
     }
 }
