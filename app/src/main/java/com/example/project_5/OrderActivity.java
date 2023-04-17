@@ -17,12 +17,5 @@ public class OrderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donut);
         Intent intent = getIntent();
-        tv = findViewById(R.id.tv_showData);
-        //display the integer on the TextView.
-        if (intent.hasExtra("INTEGER"))
-            tv.setText(String.valueOf(intent.getIntExtra("INTEGER", 0)));
-        //display the string on the TextView
-        if (intent.hasExtra("STRING"))
-            tv.setText(intent.getStringExtra("STRING"));
     }
 }
