@@ -49,7 +49,7 @@ class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutsHolder>{
 
     @Override
     public int getItemCount() {
-        return 0;
+        return donuts.size();
     }
 
     /**
