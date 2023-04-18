@@ -24,36 +24,50 @@ public class CoffeeActivity extends AppCompatActivity{
 
     private Coffee coffeeOrder = new Coffee();
 
+    /**
+     * Initializes all the variables to their default values. Sets the cupSize to the size that is selected in the
+     * ComboBox. The itemPrice changes in accordance to whatever price the cupSize is worth. Sets the cupSize to the
+     * quantity that is selected in the ComboBox. The itemPrice changes to the product of the quantity value times the
+     * sum of the number of addins and cupSize.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coffee);
         initiate();
+        coffeeOrder.setCupSize("Short");
+        itemPrice.setText("$1.89");
+        System.out.println(coffeeOrder.cupSize());
+        System.out.println(coffeeOrder.itemPrice());
         quantitySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                itemPrice.setText(adapterView.getSelectedItem().toString());
+                coffeeOrder.setQuantity(Integer.parseInt(adapterView.getSelectedItem().toString()));
+                itemPrice.setText(DecimalFormat.getCurrencyInstance().format((coffeeOrder.itemPrice())));
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        cupSizeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                coffeeOrder.setCupSize(adapterView.getSelectedItem().toString());
+                itemPrice.setText(DecimalFormat.getCurrencyInstance().format((coffeeOrder.itemPrice())));
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                itemPrice.setText("");
+
             }
         });
-//        cupSizeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                itemPrice.setText(adapterView.getSelectedItem().toString());
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//                itemPrice.setText("");
-//            }
-//        });
         Intent intent = getIntent();
     }
 
+    /**
+     * Sets up all the variables in the xml file
+     */
     private void initiate() {
         caramel = findViewById(R.id.caramel);
         vanilla = findViewById(R.id.vanilla);
@@ -145,25 +159,4 @@ public class CoffeeActivity extends AppCompatActivity{
         itemPrice.setText(DecimalFormat.getCurrencyInstance().format((coffeeOrder.itemPrice())));
     }
 
-//    /**
-//     * Sets the cupSize to the size that is selected in the ComboBox. The itemPrice changes in accordance to whatever
-//     * price the cupSize is worth.
-//     */
-//    public void setCupSize() {
-//        String cup = this.cupSize.getSelectionModel().getSelectedItem();
-//        if(cup != null) {
-//            coffeeOrder.setCupSize(this.cupSize.getSelectionModel().getSelectedItem());
-//        }
-//        itemPrice.setText(DecimalFormat.getCurrencyInstance().format((coffeeOrder.itemPrice())));
-//    }
-//
-//    /**
-//     * Sets the cupSize to the quantity that is selected in the ComboBox. The itemPrice changes to the product of the
-//     * quantity value times the sum of the number of addins and cupSize.
-//     */
-//    public void setQuantity() {
-//        String value = this.chosenQuantity.getSelectionModel().getSelectedItem();
-//        coffeeOrder.setQuantity(Integer.parseInt(value));
-//        itemPrice.setText(DecimalFormat.getCurrencyInstance().format((coffeeOrder.itemPrice())));
-//    }
 }
