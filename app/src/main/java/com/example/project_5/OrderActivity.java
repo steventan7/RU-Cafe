@@ -15,7 +15,7 @@ public class OrderActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_donut);
+        setContentView(R.layout.activity_yourorder);
         Intent intent = getIntent();
     }
 }
