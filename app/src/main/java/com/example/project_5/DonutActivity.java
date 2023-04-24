@@ -8,17 +8,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 /**
- *
+ * Activity class that allows the user to make orders for multiple flavors of donuts
  * @author Steven Tan, David Fabian
  */
 public class DonutActivity extends AppCompatActivity {
     private ArrayList<Donut> listOfDonuts = new ArrayList<>();
-    private int[] donutImages = {R.drawable.jelly,R.drawable.vanilla,R.drawable.cinnamon, R.drawable.applecider, R.drawable.blueberry,
-            R.drawable.pumpkinspice,R.drawable.chocolate,R.drawable.rainbow,R.drawable.sugar,R.drawable.redvelvet
-            ,R.drawable.applefritter,R.drawable.powdered};
+    private int[] donutImages = {R.drawable.jelly,R.drawable.vanilla,R.drawable.cinnamon, R.drawable.applecider,
+            R.drawable.blueberry, R.drawable.pumpkinspice,R.drawable.chocolate,R.drawable.rainbow,R.drawable.sugar,
+            R.drawable.redvelvet, R.drawable.applefritter,R.drawable.powdered};
 
     /**
-     * Get the references of all instances of Views defined in the layout file, set up the list of
+     * Gets the references of all instances of Views defined in the layout file and sets up the list of
      * items to be display in the RecyclerView.
      * @param savedInstanceState
      */
@@ -28,13 +28,13 @@ public class DonutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_donut);
         RecyclerView rcview = findViewById(R.id.donutRecycler);
         setupMenuItems();
-        DonutAdapter adapter = new DonutAdapter(this, listOfDonuts); //create the adapter
+        DonutAdapter adapter = new DonutAdapter(this, listOfDonuts);
         rcview.setAdapter(adapter);
         rcview.setLayoutManager(new LinearLayoutManager(this));
     }
 
     /**
-     * Helper method to set up the data (the Model of the MVC).
+     * Helper method that is used to set up the data and populate the values of the Donut RecyclerView
      */
     private void setupMenuItems() {
         String [] donutNames = getResources().getStringArray(R.array.donut_types);

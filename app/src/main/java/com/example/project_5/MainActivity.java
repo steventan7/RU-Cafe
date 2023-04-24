@@ -1,12 +1,14 @@
 package com.example.project_5;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.view.View;
-import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
+/**
+ * MainActivity class used to initiate the starting activity of the RuCafe Android app
+ * @author Steven Tan, David Fabian
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -16,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Create an Intent object with the Java class to start under current context
-     * @param view
+     * Creates an Intent object that is used to take the user to the CoffeeActivity class
+     * @param view the view that the user is taken to after clicking the respective button
      */
     public void showCoffeeActivity(View view) {
         Intent intent = new Intent(this, CoffeeActivity.class);
@@ -25,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Create an Intent object with the Java class to start under current context
-     * @param view
+     * Creates an Intent object that is used to take the user to the DonutActivity class
+     * @param view the view that the user is taken to after clicking the respective button
      */
     public void showDonutActivity(View view) {
         Intent intent = new Intent(this, DonutActivity.class);
@@ -34,9 +36,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Create an Intent object with extra data, which is an integer value 3. The KEY name for
-     * retrieving the integer value is "INTEGER".
-     * @param view
+     * Creates an Intent object that is used to take the user to the OrderActivity class
+     * @param view the view that the user is taken to after clicking the respective button
      */
     public void showOrderActivity(View view) {
         Intent intent = new Intent(this, OrderActivity.class);
@@ -45,9 +46,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Create an Intent object with extra data, which is a string literal.
-     * The KEY name for retrieving the string value is "STRING".
-     * @param view
+     * Creates an Intent object that is used to take the user to the showStoreOrderActivity class
+     * @param view the view that the user is taken to after clicking the respective button
      */
     public void showStoreOrderActivity(View view) {
         Intent intent = new Intent(this, StoreOrderActivity.class);

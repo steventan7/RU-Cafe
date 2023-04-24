@@ -6,7 +6,8 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 /**
- * Demonstration on how the extra data is retrieved.
+ * Activity class that allows the user to view all the orders placed so far, make any final changes, and export the
+ * order.
  * @author David Fabian, Steven Tan
  */
 public class StoreOrderActivity extends AppCompatActivity {

@@ -23,6 +23,11 @@
                 android:parentActivityName=".MainActivity"
                 android:exported="false" />
         <activity
+                android:name=".DonutSelectedActivity"
+                android:label="Item Selected Activity"
+                android:parentActivityName=".DonutActivity"
+                android:exported="false" />
+g        <activity
                 android:name=".DonutActivity"
                 android:label="This is the Donut activity"
                 android:parentActivityName=".MainActivity"

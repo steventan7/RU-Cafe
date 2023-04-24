@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.text.DecimalFormat;
 
 /**
- * Demonstration on how the extra data is retrieved.
+ * Activity class that allows the user to make orders for cups of coffee
  * @author Steven Tan, David Fabian
  */
 public class CoffeeActivity extends AppCompatActivity{
@@ -37,8 +37,6 @@ public class CoffeeActivity extends AppCompatActivity{
         initiate();
         coffeeOrder.setCupSize("Short");
         itemPrice.setText("$1.89");
-        System.out.println(coffeeOrder.cupSize());
-        System.out.println(coffeeOrder.itemPrice());
         quantitySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -66,7 +64,7 @@ public class CoffeeActivity extends AppCompatActivity{
     }
 
     /**
-     * Sets up all the variables in the xml file
+     * Initiates the set-up for all the variables in the xml file
      */
     private void initiate() {
         caramel = findViewById(R.id.caramel);

@@ -19,7 +19,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
- * This is an Adapter class to be used to instantiate an adapter for the RecyclerView.
+ * This is an Adapter class used to instantiate an adapter for the DonutRecyclerView.
  * @author Steven Tan, David Fabian
  */
 class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutsHolder>{
@@ -27,11 +27,21 @@ class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutsHolder>{
     private Context context;
     private ArrayList<Donut> donuts;
 
+    /**
+     * Constructs a DonutAdapter instance used to populate the DonutRecyclerView
+     * @param context the context details for obtaining the contents of the recycler view
+     * @param items the list of donuts provided by the cafe
+     */
     public DonutAdapter(Context context, ArrayList<Donut> items) {
         this.context = context;
         this.donuts = items;
     }
 
+    /**
+     * Creates a LayoutInflater object that is used to create each individual donut row of the recycler
+     * @param parent the parent of the ViewGroup
+     * @param viewType the type of view that the inflater is converted to
+     */
     @NonNull
     @Override
     public DonutsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -40,6 +50,11 @@ class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutsHolder>{
         return new DonutsHolder(view);
     }
 
+    /**
+     * Populates the values of each donut holder with regard to the donut name, price, and item image
+     * @param holder the current DonutHolder
+     * @param position the position of the donut in the recyclerview
+     */
     @Override
     public void onBindViewHolder(@NonNull DonutsHolder holder, int position) {
         holder.tv_name.setText(donuts.get(position).donutFlavor());
@@ -47,13 +62,18 @@ class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutsHolder>{
         holder.im_item.setImageResource(donuts.get(position).donutImage());
     }
 
+    /**
+     * Calls on the .size() function to obtain the number of donuts
+     * @return the number of donuts in the donuts ArrayList
+     */
     @Override
     public int getItemCount() {
         return donuts.size();
     }
 
     /**
-     * Get the views from the row layout file, similar to the onCreate() method.
+     * This is an inner class that extends the RecyclerView class that is used to create the contents of each row
+     * of the DonutRecyclerView
      */
     public static class DonutsHolder extends RecyclerView.ViewHolder {
         private TextView tv_name, tv_price;
@@ -61,6 +81,11 @@ class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutsHolder>{
         private Button btn_add;
         private ConstraintLayout parentLayout;
 
+        /**
+         * Sets the corrosponding values of each element of the donut rows to their respective name, price, and image
+         * Contains a button that allows the user to add the donut to order when clicked
+         * @param itemView the view that is being added to the RecyclerView
+         */
         public DonutsHolder(@NonNull View itemView) {
             super(itemView);
             tv_name = itemView.findViewById(R.id.donut_flavor);
@@ -68,16 +93,16 @@ class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutsHolder>{
             im_item = itemView.findViewById(R.id.im_donut);
             btn_add = itemView.findViewById(R.id.btn_add);
             parentLayout = itemView.findViewById(R.id.rowLayout);
-//            setAddButtonOnClick(itemView);
+            setAddButtonOnClick(itemView);
 
-//            parentLayout.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Intent intent = new Intent(itemView.getContext(), DonutSelectedActivity.class);
-//                    intent.putExtra("ITEM", tv_name.getText());
-//                    itemView.getContext().startActivity(intent);
-//                }
-//            });
+            parentLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(itemView.getContext(), DonutSelectedActivity.class);
+                    intent.putExtra("ITEM", tv_name.getText());
+                    itemView.getContext().startActivity(intent);
+                }
+            });
         }
 
         /**
