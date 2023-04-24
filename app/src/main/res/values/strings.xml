@@ -4,6 +4,8 @@
     <string name="remove_donut">\u003c</string>
     <string name="your_order_title">Your Order</string>
     <string name="remove_button_name">Remove Item</string>
+    <string name="donut_title">Donuts</string>
+    <string name="coffee_title">Coffee</string>
     <string-array name="donut_types">
         <item>Yeast Donut</item>
         <item>Cake Donut</item>

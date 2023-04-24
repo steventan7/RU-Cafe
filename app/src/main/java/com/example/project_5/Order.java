@@ -8,6 +8,8 @@ import java.util.ArrayList;
  */
 public class Order {
     static private int trackingNumber = 1;
+    static public Order currOrder;
+    static public ArrayList<Order> storeOrders;
     private int orderNumber;
     private ArrayList<MenuItem> listOfMenuItems;
 

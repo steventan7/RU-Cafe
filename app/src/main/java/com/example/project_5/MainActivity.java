@@ -10,7 +10,6 @@ import android.os.Bundle;
  * @author Steven Tan, David Fabian
  */
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
      */
     public void showOrderActivity(View view) {
         Intent intent = new Intent(this, OrderActivity.class);
-        intent.putExtra("INTEGER", 3);
         startActivity(intent);
     }
 

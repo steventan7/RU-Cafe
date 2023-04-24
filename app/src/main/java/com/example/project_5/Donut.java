@@ -15,6 +15,10 @@ public class Donut extends MenuItem{
     static public final String [] CAKEDONUTFLAVORS = {"Chocolate", "Rainbow", "Sugar"};
     static public final String [] DONUTHOLEFLAVORS = {"Red Velvet", "Apple Fritter", "Powdered"};
 
+    public static int[] donutImages = {R.drawable.jelly,R.drawable.vanilla,R.drawable.cinnamon, R.drawable.applecider,
+            R.drawable.blueberry, R.drawable.pumpkinspice,R.drawable.chocolate,R.drawable.rainbow,R.drawable.sugar,
+            R.drawable.redvelvet, R.drawable.applefritter,R.drawable.powdered};
+
     private String donutType;
     private int donutQuantity;
     private String donutFlavor;
@@ -111,5 +115,21 @@ public class Donut extends MenuItem{
             return this.donutFlavor.equals(otherDonut.donutFlavor()) && this.donutType.equals(otherDonut.donutType());
         }
         return false;
+    }
+    /**
+     * Checks whether this instance as a menu item is of type Donut instance.
+     * @boolean boolean which represents if this instance is of type Donut.
+     */
+    @Override
+    public boolean isDonut() {
+        return true;
+    }
+    /**
+     * Fetches the image index that is stored in this instance.
+     * @boolean int which represents the image index from resources.
+     */
+    @Override
+    public int itemImage() {
+        return donutImage;
     }
 }

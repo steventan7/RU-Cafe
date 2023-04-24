@@ -14,6 +14,7 @@ public class Coffee extends MenuItem{
     public static final double COSTOFGRANDE = 2.69;
     public static final double COSTOFVENTI = 3.09;
     public static final double COSTOFADD_IN = 0.30;
+    public static final int coffeeImage = R.drawable.coffee;
 
     private String cupSize;
     private ArrayList<String> addIns;
@@ -82,6 +83,15 @@ public class Coffee extends MenuItem{
     }
 
     /**
+     * Adds the argument integer to the quantity value of this Coffee instance.
+     * @param quantityToAdd quantity of coffees to add onto this instance.
+     */
+    @Override
+    public void addQuantity(int quantityToAdd) {
+        this.quantity += quantityToAdd;
+    }
+
+    /**
      * Sets the current quantity to the newQuantity.
      * @param newQuantity the newQuantity value the quantity value is changed to
      */
@@ -127,5 +137,22 @@ public class Coffee extends MenuItem{
                     && otherCoffee.listOfAddIns().containsAll(this.addIns);
         }
         return false;
+    }
+
+    /**
+     * Checks whether this instance as a menu item is of type Donut instance.
+     * @boolean boolean which represents if this instance is of type Donut.
+     */
+    @Override
+    public boolean isDonut() {
+        return false;
+    }
+    /**
+     * Fetches the image index that is stored in this instance.
+     * @boolean int which represents the image index from resources.
+     */
+    @Override
+    public int itemImage() {
+        return coffeeImage;
     }
 }

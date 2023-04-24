@@ -12,4 +12,8 @@ public abstract class MenuItem {
      * hundredth place.
      */
     public abstract double itemPrice();
+
+    public abstract void addQuantity(int quantityToAdd);
+    public abstract boolean isDonut();
+    public abstract int itemImage();
 }

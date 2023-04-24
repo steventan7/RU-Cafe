@@ -108,7 +108,7 @@ class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutsHolder>{
         /**
          * Set the onClickListener for the button on each row.
          * Clicking on the button will create an AlertDialog with the options of YES/NO.
-         * @param itemView
+         * @param itemView the view corresponding to the row view clicked.
          */
         private void setAddButtonOnClick(@NonNull View itemView) {
             btn_add.setOnClickListener(new View.OnClickListener() {
