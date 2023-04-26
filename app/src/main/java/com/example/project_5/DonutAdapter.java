@@ -7,13 +7,11 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -80,6 +78,8 @@ class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutsHolder>{
         private ImageView im_item;
         private Button btn_add;
         private ConstraintLayout parentLayout;
+        private ArrayList<Donut> donutsOrdered= new ArrayList();
+        private Spinner quantitySpinner;
 
         /**
          * Sets the corrosponding values of each element of the donut rows to their respective name, price, and image
@@ -93,16 +93,8 @@ class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutsHolder>{
             im_item = itemView.findViewById(R.id.im_donut);
             btn_add = itemView.findViewById(R.id.btn_add);
             parentLayout = itemView.findViewById(R.id.rowLayout);
+            quantitySpinner = itemView.findViewById(R.id.donutquantity);
             setAddButtonOnClick(itemView);
-
-            parentLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(itemView.getContext(), DonutSelectedActivity.class);
-                    intent.putExtra("ITEM", tv_name.getText());
-                    itemView.getContext().startActivity(intent);
-                }
-            });
         }
 
         /**

@@ -17,11 +17,8 @@ public class CoffeeActivity extends AppCompatActivity{
     private TextView itemPrice;
     private Spinner quantitySpinner;
     private Spinner cupSizeSpinner;
-    private String[] coffeeQuantity = {"1","2","3", "4", "5"};
-    private String[] cupSize = {"Short", "Tall", "Grande", "Venti"};
     private ArrayAdapter<String> adapterQuantity;
     private ArrayAdapter<String> adapterCupSize;
-
     private Coffee coffeeOrder = new Coffee();
 
     /**
@@ -75,8 +72,10 @@ public class CoffeeActivity extends AppCompatActivity{
         itemPrice = findViewById(R.id.currentcoffeeprice);
         quantitySpinner = findViewById(R.id.coffeequantity);
         cupSizeSpinner = findViewById(R.id.coffeesize);
-        adapterQuantity = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, coffeeQuantity);
-        adapterCupSize = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, cupSize);
+        adapterQuantity = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,
+                getResources().getStringArray(R.array.quantity));
+        adapterCupSize = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,
+                getResources().getStringArray(R.array.cupsize));
         quantitySpinner.setAdapter(adapterQuantity);
         cupSizeSpinner.setAdapter(adapterCupSize);
     }
@@ -88,9 +87,11 @@ public class CoffeeActivity extends AppCompatActivity{
     public void addCaramel(View view) {
         if (caramel.isChecked() && !coffeeOrder.listOfAddIns().contains("Caramel")) {
             coffeeOrder.listOfAddIns().add("Caramel");
+            Toast.makeText(this, "Added caramel", Toast.LENGTH_LONG).show();
         } else {
             if(coffeeOrder.listOfAddIns().contains("Caramel")) {
                 coffeeOrder.listOfAddIns().remove("Caramel");
+                Toast.makeText(this, "Removed caramel", Toast.LENGTH_LONG).show();
             }
         }
         itemPrice.setText(DecimalFormat.getCurrencyInstance().format((coffeeOrder.itemPrice())));
@@ -103,9 +104,11 @@ public class CoffeeActivity extends AppCompatActivity{
     public void addIrishCream(View view) {
         if (irishCream.isChecked()  && !coffeeOrder.listOfAddIns().contains("Irish Cream")) {
             coffeeOrder.listOfAddIns().add("Irish Cream");
+            Toast.makeText(this, "Added Irish Cream", Toast.LENGTH_LONG).show();
         } else {
             if(coffeeOrder.listOfAddIns().contains("Irish Cream")) {
                 coffeeOrder.listOfAddIns().remove("Irish Cream");
+                Toast.makeText(this, "Removed Irish Cream", Toast.LENGTH_LONG).show();
             }
         }
         itemPrice.setText(DecimalFormat.getCurrencyInstance().format((coffeeOrder.itemPrice())));
@@ -118,9 +121,11 @@ public class CoffeeActivity extends AppCompatActivity{
     public void addVanilla(View view) {
         if (vanilla.isChecked()  && !coffeeOrder.listOfAddIns().contains("Vanilla")) {
             coffeeOrder.listOfAddIns().add("Vanilla");
+            Toast.makeText(this, "Added Vanilla", Toast.LENGTH_LONG).show();
         } else {
             if(coffeeOrder.listOfAddIns().contains("Vanilla")) {
                 coffeeOrder.listOfAddIns().remove("Vanilla");
+                Toast.makeText(this, "Removed Vanilla", Toast.LENGTH_LONG).show();
             }
         }
         itemPrice.setText(DecimalFormat.getCurrencyInstance().format((coffeeOrder.itemPrice())));
@@ -134,9 +139,11 @@ public class CoffeeActivity extends AppCompatActivity{
     public void addFrenchVanilla(View view) {
         if (frenchVanilla.isChecked()  && !coffeeOrder.listOfAddIns().contains("French Vanilla")) {
             coffeeOrder.listOfAddIns().add("French Vanilla");
+            Toast.makeText(this, "Added French Vanilla", Toast.LENGTH_LONG).show();
         } else {
             if(coffeeOrder.listOfAddIns().contains("French Vanilla")) {
                 coffeeOrder.listOfAddIns().remove("French Vanilla");
+                Toast.makeText(this, "Removed French Vanilla", Toast.LENGTH_LONG).show();
             }
         }
         itemPrice.setText(DecimalFormat.getCurrencyInstance().format((coffeeOrder.itemPrice())));
@@ -149,9 +156,11 @@ public class CoffeeActivity extends AppCompatActivity{
     public void addSweetCream(View view) {
         if (sweetCream.isChecked()  && !coffeeOrder.listOfAddIns().contains("Sweet Cream")) {
             coffeeOrder.listOfAddIns().add("Sweet Cream");
+            Toast.makeText(this, "Added sweet cream", Toast.LENGTH_LONG).show();
         } else {
             if(coffeeOrder.listOfAddIns().contains("Sweet Cream")) {
                 coffeeOrder.listOfAddIns().remove("Sweet Cream");
+                Toast.makeText(this, "Removed sweet cream", Toast.LENGTH_LONG).show();
             }
         }
         itemPrice.setText(DecimalFormat.getCurrencyInstance().format((coffeeOrder.itemPrice())));
