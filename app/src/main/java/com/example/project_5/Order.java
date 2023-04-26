@@ -24,26 +24,11 @@ public class Order {
     }
 
     /**
-     * Adds the items contained in the argument arraylist to the list of menu items in the order.
-     * @param subOrderList arraylist containing new menu items to add to the order.
+     * Adds the item contained in the argument to the list of menu items in the order.
+     * @param newMenuItem MenuItem Object containing new menu item to add to the order.
      */
-    public void addItems(ArrayList<MenuItem> subOrderList) {
-        int searcher = 0;
-        for(MenuItem newItem : subOrderList) {
-            searcher = this.listOfMenuItems.indexOf(newItem);
-            if(searcher != -1) {
-                if(newItem instanceof Donut) {
-                    Donut newDonut = (Donut) newItem;
-                    ((Donut) this.listOfMenuItems.get(searcher)).addQuantity(newDonut.donutQuantity());
-                } else if(newItem instanceof Coffee) {
-                    Coffee newCoffee = (Coffee) newItem;
-                    ((Coffee) this.listOfMenuItems.get(searcher)).setQuantity(newCoffee.coffeeQuantity() +
-                            ((Coffee) this.listOfMenuItems.get(searcher)).coffeeQuantity());
-                }
-            } else {
-                this.listOfMenuItems.add(newItem);
-            }
-        }
+    public void addItem(MenuItem newMenuItem) {
+        menuList().add(newMenuItem);
     }
 
     /**

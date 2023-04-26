@@ -3,7 +3,10 @@
     <string name="add_donut">\u003e</string>
     <string name="remove_donut">\u003c</string>
     <string name="your_order_title">Your Order</string>
+    <string name="store_orders_title">Store Orders</string>
+    <string name="order_num_label">Store Order Number</string>
     <string name="remove_button_name">Remove Item</string>
+    <string name="remove_order_button_name">Remove Order</string>
     <string name="donut_title">Donuts</string>
     <string name="coffee_title">Coffee</string>
     <string-array name="donut_types">
@@ -30,6 +33,7 @@
         <item>Powdered</item>
     </string-array>
     <string-array name="quantity">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -42,4 +46,6 @@
         <item>Grande</item>
         <item>Venti</item>
     </string-array>
+    <string name="empty_order_alert">Current Order is Empty</string>
+    <string name="add">add</string>
 </resources>

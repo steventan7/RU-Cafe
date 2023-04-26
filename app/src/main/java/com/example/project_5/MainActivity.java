@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 /**
  * MainActivity class used to initiate the starting activity of the RuCafe Android app
@@ -39,8 +40,14 @@ public class MainActivity extends AppCompatActivity {
      * @param view the view that the user is taken to after clicking the respective button
      */
     public void showOrderActivity(View view) {
-        Intent intent = new Intent(this, OrderActivity.class);
-        startActivity(intent);
+        if(Order.currOrder != null && !Order.currOrder.menuList().isEmpty()) {
+            Intent intent = new Intent(this, OrderActivity.class);
+            startActivity(intent);
+        } else {
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(getApplicationContext(), R.string.empty_order_alert, duration);
+            toast.show();
+        }
     }
 
     /**
@@ -48,8 +55,13 @@ public class MainActivity extends AppCompatActivity {
      * @param view the view that the user is taken to after clicking the respective button
      */
     public void showStoreOrderActivity(View view) {
-        Intent intent = new Intent(this, StoreOrderActivity.class);
-        intent.putExtra("STRING", "CS 213 SOFTWARE METHODOLOGY");
-        startActivity(intent);
+        if(Order.storeOrders != null && !Order.storeOrders.isEmpty()) {
+            Intent intent = new Intent(this, StoreOrderActivity.class);
+            startActivity(intent);
+        } else {
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(getApplicationContext(), R.string.empty_order_alert, duration);
+            toast.show();
+        }
     }
 }

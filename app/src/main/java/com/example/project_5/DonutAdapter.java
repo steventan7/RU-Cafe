@@ -24,6 +24,7 @@ class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutsHolder>{
 
     private Context context;
     private ArrayList<Donut> donuts;
+    private ArrayList<Donut> selectedDonuts;
 
     /**
      * Constructs a DonutAdapter instance used to populate the DonutRecyclerView
@@ -58,6 +59,12 @@ class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutsHolder>{
         holder.tv_name.setText(donuts.get(position).donutFlavor());
         holder.tv_price.setText(DecimalFormat.getCurrencyInstance().format((donuts.get(position).itemPrice())));
         holder.im_item.setImageResource(donuts.get(position).donutImage());
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context,
+                R.array.quantity, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        holder.quantitySpinner.setAdapter(adapter);
+        holder.quantitySpinner.setSelection(0);
+        holder.donutType = donuts.get(position).donutType();
     }
 
     /**
@@ -75,6 +82,7 @@ class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutsHolder>{
      */
     public static class DonutsHolder extends RecyclerView.ViewHolder {
         private TextView tv_name, tv_price;
+        private String donutType;
         private ImageView im_item;
         private Button btn_add;
         private ConstraintLayout parentLayout;
@@ -111,6 +119,10 @@ class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutsHolder>{
                     alert.setMessage(tv_name.getText().toString());
                     alert.setPositiveButton("yes", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            Order.currOrder.addItem(new Donut(donutType,
+                                    tv_name.getText().toString(),
+                                    Integer.parseInt(quantitySpinner.getSelectedItem().toString()),
+                                    im_item.getId()));
                             Toast.makeText(itemView.getContext(),
                                     tv_name.getText().toString() + " added.", Toast.LENGTH_LONG).show();
                         }

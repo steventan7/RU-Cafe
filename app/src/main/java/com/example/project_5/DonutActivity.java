@@ -4,6 +4,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 
@@ -13,6 +14,7 @@ import java.util.ArrayList;
  */
 public class DonutActivity extends AppCompatActivity {
     private ArrayList<Donut> listOfDonuts = new ArrayList<>();
+    private ArrayList<Donut> selectedDonuts = new ArrayList<>();
 
     /**
      * Gets the references of all instances of Views defined in the layout file and sets up the list of
