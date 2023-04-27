@@ -45,8 +45,6 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         orderListView = findViewById(R.id.orderListView);
         addOrderButton = findViewById(R.id.addOrderButton);
         updateAdapter();
-        Toast.makeText(this, "PASSED 0",
-                Toast.LENGTH_LONG).show();
         updatePrices();
         setAddOrderButtonOnClick();
     }

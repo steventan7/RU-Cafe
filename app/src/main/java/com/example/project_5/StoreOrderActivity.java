@@ -87,6 +87,8 @@ public class StoreOrderActivity extends AppCompatActivity {
         } else {
             menuItemListDesc.clear();
         }
+        Toast.makeText(this, "PASSED " + selectedOrder,
+                Toast.LENGTH_LONG).show();
         for(MenuItem item : selectedOrder.menuList()) {
             menuItemListDesc.add(item.toString());
         }
