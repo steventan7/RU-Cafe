@@ -73,7 +73,7 @@ public class StoreOrderActivity extends AppCompatActivity {
                 menuItemListDesc);
         orderListView.setAdapter(adapter);
         String totalOrderPrice = DecimalFormat.getCurrencyInstance()
-                .format(Order.storeOrders.get(orderNum).subTotal() * Order.NJTAX);
+                .format(Order.storeOrders.get(orderIndex).subTotal() * Order.NJTAX);
         orderPriceField.setText(totalOrderPrice);
     }
 
@@ -87,8 +87,6 @@ public class StoreOrderActivity extends AppCompatActivity {
         } else {
             menuItemListDesc.clear();
         }
-        Toast.makeText(this, "PASSED " + selectedOrder,
-                Toast.LENGTH_LONG).show();
         for(MenuItem item : selectedOrder.menuList()) {
             menuItemListDesc.add(item.toString());
         }
