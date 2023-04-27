@@ -22,9 +22,11 @@ import java.util.ArrayList;
 class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrdersHolder>{
 
     private Context context;
+    private View orderView;
 
-    public OrderAdapter(Context context) {
+    public OrderAdapter(Context context, @NonNull View orderView) {
         this.context = context;
+        this.orderView = orderView;
     }
     @NonNull
     @Override
@@ -71,6 +73,7 @@ class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrdersHolder>{
             itemPrice = itemView.findViewById(R.id.itemPrice);
             removeItem = itemView.findViewById(R.id.removeItem);
             parentLayout = itemView.findViewById(R.id.rowLayout);
+            itemImage = itemView.findViewById(R.id.im_donut);
             setRemoveButtonOnClick(itemView);
         }
         /**

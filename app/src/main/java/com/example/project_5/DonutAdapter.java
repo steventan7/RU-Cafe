@@ -57,7 +57,8 @@ class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutsHolder>{
     @Override
     public void onBindViewHolder(@NonNull DonutsHolder holder, int position) {
         holder.tv_name.setText(donuts.get(position).donutFlavor());
-        holder.tv_price.setText(DecimalFormat.getCurrencyInstance().format((donuts.get(position).itemPrice())));
+        holder.tv_price.setText(DecimalFormat.getCurrencyInstance()
+                .format((donuts.get(position).itemPrice())));
         holder.im_item.setImageResource(donuts.get(position).donutImage());
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context,
                 R.array.quantity, android.R.layout.simple_spinner_item);
@@ -85,8 +86,6 @@ class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutsHolder>{
         private String donutType;
         private ImageView im_item;
         private Button btn_add;
-        private ConstraintLayout parentLayout;
-        private ArrayList<Donut> donutsOrdered= new ArrayList();
         private Spinner quantitySpinner;
 
         /**
@@ -100,7 +99,6 @@ class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutsHolder>{
             tv_price = itemView.findViewById(R.id.tv_price);
             im_item = itemView.findViewById(R.id.im_donut);
             btn_add = itemView.findViewById(R.id.btn_add);
-            parentLayout = itemView.findViewById(R.id.rowLayout);
             quantitySpinner = itemView.findViewById(R.id.donutquantity);
             setAddButtonOnClick(itemView);
         }

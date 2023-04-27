@@ -60,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         } else {
             int duration = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(getApplicationContext(), R.string.empty_order_alert, duration);
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    R.string.empty_order_list_alert, duration);
             toast.show();
         }
     }

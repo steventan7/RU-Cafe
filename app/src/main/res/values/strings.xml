@@ -46,6 +46,13 @@
         <item>Grande</item>
         <item>Venti</item>
     </string-array>
+    <string name="add_order_button_title">Add To Store Orders</string>
+    <string name="subtotal_label">Subtotal:</string>
+    <string name="tax_label">Tax:</string>
+    <string name="total_label">Total:</string>
     <string name="empty_order_alert">Current Order is Empty</string>
+    <string name="empty_order_list_alert">Store Order List is Empty</string>
     <string name="add">add</string>
+    <string name="donut_name">Donut</string>
+    <string name="coffee_name">Coffee</string>
 </resources>

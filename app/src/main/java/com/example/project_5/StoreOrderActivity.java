@@ -1,9 +1,22 @@
 package com.example.project_5;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.view.View;
+import android.widget.Spinner;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Button;
+import android.widget.Toast;
+import android.widget.TextView;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+
 
 /**
  * Activity class that allows the user to view all the orders placed so far, make any final changes, and export the
@@ -11,12 +24,90 @@ import androidx.appcompat.app.AppCompatActivity;
  * @author David Fabian, Steven Tan
  */
 public class StoreOrderActivity extends AppCompatActivity {
-    private EditText tv;
+    private Spinner orderNumSpinner;
+    private ListView orderListView;
+    private Button removeOrderButton;
+    private TextView orderPriceField;
+    private ArrayList<String> menuItemListDesc;
+    private ArrayList<String> orderNumbers;
+    private ArrayAdapter adapter;
 
+    /**
+     * Gets the references of all instances of Views defined in the layout file and sets up the list of
+     * items to be display in the RecyclerView.
+     * @param savedInstanceState Bundle that contains data sent through the change in activity.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_storeorder);
-        Intent intent = getIntent();
+        orderListView = findViewById(R.id.orderListview);
+        orderNumSpinner = findViewById(R.id.orderNumSpinner);
+        removeOrderButton = findViewById(R.id.removeOrderButton);
+        orderPriceField = findViewById(R.id.orderPrice);
+        setRemoveOrderButtonOnClick();
+    }
+
+    /**
+     * Updates the list view and order price field with the corresponding values of the currently
+     * selected order.
+     */
+    private void updateListView() {
+        int orderNum = Integer.parseInt(orderNumSpinner.getSelectedItem().toString());
+        setArrayList(Order.storeOrders.get(orderNum));
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
+                menuItemListDesc);
+        orderListView.setAdapter(adapter);
+        String totalOrderPrice = DecimalFormat.getCurrencyInstance()
+                .format(Order.storeOrders.get(orderNum).subTotal() * Order.NJTAX);
+        orderPriceField.setText(totalOrderPrice);
+    }
+
+    /**
+     * Updates the ArrayList representing the item description of the currently selected order.
+     * @param selectedOrder Order which is currently selecting by the Spinner.
+     */
+    private void setArrayList(Order selectedOrder) {
+        for(MenuItem item : selectedOrder.menuList()) {
+            menuItemListDesc.add(item.toString());
+        }
+    }
+
+    /**
+     * Updates the Spinner with the list of order numbers that are available to see.
+     */
+    private void updateOrderNumList() {
+        orderNumbers.clear();
+        for(Order currOrder : Order.storeOrders) {
+            orderNumbers.add(String.valueOf(currOrder.orderNumber()));
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter(this,
+                android.R.layout.simple_spinner_item, orderNumbers);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        orderNumSpinner.setAdapter(adapter);
+    }
+
+    /**
+     * Sets up the remove button for removing the currently selected order in the Spinner.
+     * Returns to the previous activity if the store orders list is empty afterwards.
+     */
+    private void setRemoveOrderButtonOnClick() {
+        removeOrderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int orderNum = Integer.parseInt(orderNumSpinner.getSelectedItem().toString());
+                Order.storeOrders.remove(orderNum);
+                updateOrderNumList();
+                if(Order.storeOrders.isEmpty()) {
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(getApplicationContext(),
+                            R.string.empty_order_list_alert, duration);
+                    toast.show();
+                    finish();
+                }
+                orderNumSpinner.setSelection(0);
+                updateListView();
+            }
+        });
     }
 }

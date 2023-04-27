@@ -19,7 +19,7 @@ public class DonutActivity extends AppCompatActivity {
     /**
      * Gets the references of all instances of Views defined in the layout file and sets up the list of
      * items to be display in the RecyclerView.
-     * @param savedInstanceState
+     * @param savedInstanceState Bundle that contains data sent through the change in activity.
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {

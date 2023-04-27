@@ -26,46 +26,56 @@
         app:layout_constraintVertical_bias="0.096" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/orderNumSpinner"
         android:layout_width="411dp"
         android:layout_height="76dp"
         android:background="#BCBCBC"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="218dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <ListView
-        android:layout_width="414dp"
-        android:layout_height="464dp"
+        android:id="@+id/orderListview"
+        android:layout_width="412dp"
+        android:layout_height="428dp"
         android:layout_marginTop="11dp"
         android:background="#AEAEAE"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/orderNumSpinner" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/removeOrderButton"
         android:layout_width="415dp"
         android:layout_height="97dp"
+        android:layout_marginTop="12dp"
         android:text="@string/remove_order_button_name"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/orderListview" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="299dp"
-        android:layout_height="42dp"
+        android:layout_width="264dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="24dp"
         android:text="@string/order_num_label"
-        android:textAlignment="center"
+        android:textAlignment="textStart"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/spinner"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_showData"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_showData" />
+
+    <TextView
+        android:id="@+id/orderPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="100dp"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_showData" />
 </androidx.constraintlayout.widget.ConstraintLayout>

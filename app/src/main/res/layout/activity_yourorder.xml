@@ -8,16 +8,51 @@
     android:visibility="visible"
     tools:context=".OrderActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/orderRecyclerView"
-        android:layout_width="409dp"
-        android:layout_height="679dp"
-        android:background="#656565"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_showData"
-        app:layout_constraintVertical_bias="0.0" />
+    <TextView
+        android:id="@+id/labelSub5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/total_label"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/taxLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tv_showData" />
+
+    <TextView
+        android:id="@+id/subtotalField4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="4dp"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/taxField"
+        app:layout_constraintTop_toBottomOf="@+id/labelSub5" />
+
+    <TextView
+        android:id="@+id/taxLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/tax_label"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/labelSub"
+        app:layout_constraintTop_toBottomOf="@+id/tv_showData" />
+
+    <TextView
+        android:id="@+id/taxField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="4dp"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/subtotalField"
+        app:layout_constraintTop_toBottomOf="@+id/taxLabel" />
 
     <EditText
         android:id="@+id/tv_showData"
@@ -34,5 +69,47 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/addOrderButton"
+        android:layout_width="339dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="2dp"
+        android:text="@string/add_order_button_title"
+        app:layout_constraintBottom_toTopOf="@+id/orderListView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/labelSub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/subtotal_label"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_showData" />
+
+    <TextView
+        android:id="@+id/subtotalField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="4dp"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelSub" />
+
+    <ListView
+        android:id="@+id/orderListView"
+        android:layout_width="409dp"
+        android:layout_height="534dp"
+        android:background="#C3C3C3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

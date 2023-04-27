@@ -19,9 +19,9 @@ public class OrderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yourorder);
-        RecyclerView orderRV = findViewById(R.id.orderRecyclerView);
-        OrderAdapter adapter = new OrderAdapter(this);
-        orderRV.setAdapter(adapter);
-        orderRV.setLayoutManager(new LinearLayoutManager(this));
+        //RecyclerView orderRV = findViewById(R.id.orderRecyclerView);
+        //OrderAdapter adapter = new OrderAdapter(this);
+        //rderRV.setAdapter(adapter);
+        //orderRV.setLayoutManager(new LinearLayoutManager(this));
     }
 }
