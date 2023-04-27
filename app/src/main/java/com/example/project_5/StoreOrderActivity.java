@@ -68,8 +68,6 @@ public class StoreOrderActivity extends AppCompatActivity {
                 Order.storeOrders.get(orderIndex).orderNumber() != orderNum) {
             orderIndex++;
         }
-        Toast.makeText(this, "PASSED " + orderIndex,
-                Toast.LENGTH_LONG).show();
         setArrayList(Order.storeOrders.get(orderIndex));
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
                 menuItemListDesc);
