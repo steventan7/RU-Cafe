@@ -128,7 +128,12 @@ public class StoreOrderActivity extends AppCompatActivity {
                     toast.show();
                 } else {
                     int orderNum = Integer.parseInt(orderNumSpinner.getSelectedItem().toString());
-                    Order.storeOrders.remove(orderNum);
+                    int orderIndex = 0;
+                    while(orderIndex < Order.storeOrders.size() &&
+                            Order.storeOrders.get(orderIndex).orderNumber() != orderNum) {
+                        orderIndex++;
+                    }
+                    Order.storeOrders.remove(orderIndex);
                     updateOrderNumList();
                     orderNumSpinner.setSelection(0);
                 }
