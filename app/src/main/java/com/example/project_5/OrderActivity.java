@@ -30,6 +30,11 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
     private ArrayList<String> menuItemDesc;
     private ArrayAdapter<String> adapter;
 
+    /**
+     * Gets the references of all instances of Views defined in the layout file and sets up the list of
+     * items to be display in the order view
+     * @param savedInstanceState Bundle that contains data sent through the change in activity.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +48,11 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         updatePrices();
         setAddOrderButtonOnClick();
     }
+
+    /**
+     * Updates the order adapter by first clearing the menuItemDesc ArrayList and then adding all the current
+     * order menu items to it. The orderList is then set to the newly updated adapter
+     */
     private void updateAdapter() {
         menuItemDesc.clear();
         for(MenuItem item : Order.currOrder.menuList()) {
@@ -53,6 +63,12 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         orderListView.setOnItemClickListener(this);
         orderListView.setAdapter(adapter);
     }
+
+    /**
+     * Updates the order prices. If the current order is not null or there is no menu items currently added, then the
+     * subTotal,tax, and total cost of the order are set to a price of zero. Else, the subTotal, tax, and total cost of
+     * order is set to their respective cost.
+     */
     private void updatePrices() {
         if(Order.currOrder == null || Order.currOrder.menuList().isEmpty()) {
             subTotalLabel.setText(R.string.zero_price);
@@ -68,12 +84,25 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                 .format(Order.currOrder.subTotal() * (Order.NJTAX)));
     }
 
+    /**
+     * Displays the respective alert dialog message when the user clicks on the button. If the user clicks "yes",
+     * the order selected is removed. Else, nothing happens.
+     * @param adapterView the current order adapter view being used
+     * @param view the current order view being displayed
+     * @param position the position of the current order
+     * @param id the ID of the current order
+     */
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setTitle("Demo the alert dialog.");
         alert.setMessage(adapterView.getAdapter().getItem(position).toString());
         alert.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            /**
+             * Displays a message stating that the selected order has been removed
+             * @param dialog the DialogInterface that is displayed
+             * @param which the position of the current order
+             */
             public void onClick(DialogInterface dialog, int which) {
                 Order.currOrder.removeItem(adapterView.getAdapter().getItem(position).toString());
                 updateAdapter();
@@ -82,12 +111,23 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                         Toast.LENGTH_LONG).show();
             }
         }).setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+            /**
+             * Displays nothing when nothing has been selected
+             * @param dialog the DialogInterface that is displayed
+             * @param which the position of the current order
+             */
             public void onClick(DialogInterface dialog, int which) {
             }
         });
         AlertDialog dialog = alert.create();
         dialog.show();
     }
+
+    /**
+     * Set the onClickListener for the button that checks whether the current store order is empty. If the store
+     * order is empty, then the curr order is set to null and an"Added Order to Store Orders" Toast is sent.
+     * Else a "Store Order List is Empty" Toast is sent.
+     */
     private void setAddOrderButtonOnClick() {
         addOrderButton.setOnClickListener(new View.OnClickListener() {
             @Override
