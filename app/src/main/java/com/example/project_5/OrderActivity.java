@@ -54,6 +54,9 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
      * order menu items to it. The orderList is then set to the newly updated adapter
      */
     private void updateAdapter() {
+        if(Order.currOrder == null) {
+            Order.currOrder = new Order();
+        }
         if(menuItemDesc != null) {
             menuItemDesc.clear();
         } else {
