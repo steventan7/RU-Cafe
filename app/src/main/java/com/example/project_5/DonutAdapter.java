@@ -112,19 +112,27 @@ class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutsHolder>{
             btn_add.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    if(Integer.parseInt(quantitySpinner.getSelectedItem().toString()) == 0) {
+                        Toast.makeText(itemView.getContext(),
+                                R.string.empty_donut_message, Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     AlertDialog.Builder alert = new AlertDialog.Builder(itemView.getContext());
                     alert.setTitle("Add to order");
                     alert.setMessage(tv_name.getText().toString());
-                    alert.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                    alert.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            if(Order.currOrder == null) {
+                                Order.currOrder = new Order();
+                            }
                             Order.currOrder.addItem(new Donut(donutType,
                                     tv_name.getText().toString(),
                                     Integer.parseInt(quantitySpinner.getSelectedItem().toString()),
-                                    im_item.getId()));
+                                    0));
                             Toast.makeText(itemView.getContext(),
                                     tv_name.getText().toString() + " added.", Toast.LENGTH_LONG).show();
                         }
-                    }).setNegativeButton("no", new DialogInterface.OnClickListener() {
+                    }).setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Toast.makeText(itemView.getContext(),
                                     tv_name.getText().toString() + " not added.", Toast.LENGTH_LONG).show();

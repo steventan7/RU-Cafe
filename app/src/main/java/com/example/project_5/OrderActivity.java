@@ -40,11 +40,17 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         orderListView = findViewById(R.id.orderListView);
         addOrderButton = findViewById(R.id.addOrderButton);
         updateAdapter();
+        Toast.makeText(this, "PASSED 0",
+                Toast.LENGTH_LONG).show();
         updatePrices();
         setAddOrderButtonOnClick();
     }
     private void updateAdapter() {
-        menuItemDesc.clear();
+        if(menuItemDesc != null) {
+            menuItemDesc.clear();
+        } else {
+            menuItemDesc = new ArrayList<>();
+        }
         for(MenuItem item : Order.currOrder.menuList()) {
             menuItemDesc.add(item.toString());
         }
@@ -97,6 +103,8 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
                     Order.currOrder = null;
                     Toast.makeText(getApplicationContext(),
                             R.string.add_order_message, Toast.LENGTH_SHORT).show();
+                    updateAdapter();
+                    updatePrices();
                 } else {
                     Toast.makeText(getApplicationContext(),
                             R.string.empty_order_alert, Toast.LENGTH_SHORT).show();

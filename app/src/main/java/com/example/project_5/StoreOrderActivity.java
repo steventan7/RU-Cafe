@@ -78,6 +78,11 @@ public class StoreOrderActivity extends AppCompatActivity {
      * @param selectedOrder Order which is currently selecting by the Spinner.
      */
     private void setArrayList(Order selectedOrder) {
+        if(menuItemListDesc != null) {
+            menuItemListDesc = new ArrayList<>();
+        } else {
+            menuItemListDesc.clear();
+        }
         for(MenuItem item : selectedOrder.menuList()) {
             menuItemListDesc.add(item.toString());
         }
@@ -87,7 +92,11 @@ public class StoreOrderActivity extends AppCompatActivity {
      * Updates the Spinner with the list of order numbers that are available to see.
      */
     private void updateOrderNumList() {
-        orderNumbers.clear();
+        if(orderNumbers != null) {
+            orderNumbers.clear();
+        } else {
+            orderNumbers = new ArrayList<>();
+        }
         for(Order currOrder : Order.storeOrders) {
             orderNumbers.add(String.valueOf(currOrder.orderNumber()));
         }

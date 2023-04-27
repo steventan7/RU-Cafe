@@ -54,6 +54,7 @@
     <string name="empty_order_list_alert">Store Order List is Empty</string>
     <string name="remove_item_message">Removed Item From Order</string>
     <string name="add_order_message">Added Order to Store Orders</string>
+    <string name="empty_donut_message">Please Enter a Positive Quantity</string>
     <string name="add">add</string>
     <string name="donut_name">Donut</string>
     <string name="coffee_name">Coffee</string>
