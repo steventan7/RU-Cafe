@@ -53,6 +53,16 @@ public class StoreOrderActivity extends AppCompatActivity {
      * selected order.
      */
     private void updateListView() {
+        if(Order.storeOrders.isEmpty()) {
+            setArrayList(new Order());
+            adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
+                    menuItemListDesc);
+            orderListView.setAdapter(adapter);
+            String totalOrderPrice = DecimalFormat.getCurrencyInstance()
+                    .format(new Order().subTotal());
+            orderPriceField.setText(totalOrderPrice);
+            return;
+        }
         int orderNum = Integer.parseInt(orderNumSpinner.getSelectedItem().toString());
         setArrayList(Order.storeOrders.get(orderNum));
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
@@ -95,17 +105,17 @@ public class StoreOrderActivity extends AppCompatActivity {
         removeOrderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int orderNum = Integer.parseInt(orderNumSpinner.getSelectedItem().toString());
-                Order.storeOrders.remove(orderNum);
-                updateOrderNumList();
                 if(Order.storeOrders.isEmpty()) {
                     int duration = Toast.LENGTH_SHORT;
                     Toast toast = Toast.makeText(getApplicationContext(),
                             R.string.empty_order_list_alert, duration);
                     toast.show();
-                    finish();
+                } else {
+                    int orderNum = Integer.parseInt(orderNumSpinner.getSelectedItem().toString());
+                    Order.storeOrders.remove(orderNum);
+                    updateOrderNumList();
+                    orderNumSpinner.setSelection(0);
                 }
-                orderNumSpinner.setSelection(0);
                 updateListView();
             }
         });

@@ -52,7 +52,11 @@
     <string name="total_label">Total:</string>
     <string name="empty_order_alert">Current Order is Empty</string>
     <string name="empty_order_list_alert">Store Order List is Empty</string>
+    <string name="remove_item_message">Removed Item From Order</string>
     <string name="add">add</string>
     <string name="donut_name">Donut</string>
     <string name="coffee_name">Coffee</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="zero_price">$0.00</string>
 </resources>

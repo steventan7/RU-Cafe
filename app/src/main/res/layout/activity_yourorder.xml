@@ -9,66 +9,65 @@
     tools:context=".OrderActivity">
 
     <TextView
-        android:id="@+id/labelSub5"
+        android:id="@+id/yourOrderTitle"
+        android:layout_width="412dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="96dp"
+        android:background="#FF0000"
+        android:text="@string/your_order_title"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/labelTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="35dp"
         android:text="@string/total_label"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/taxLabel"
-        app:layout_constraintTop_toBottomOf="@+id/tv_showData" />
+        app:layout_constraintTop_toBottomOf="@+id/yourOrderTitle" />
 
     <TextView
-        android:id="@+id/subtotalField4"
+        android:id="@+id/totalField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="124dp"
         android:layout_marginTop="4dp"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/taxField"
-        app:layout_constraintTop_toBottomOf="@+id/labelSub5" />
+        app:layout_constraintTop_toBottomOf="@+id/labelTotal" />
 
     <TextView
         android:id="@+id/taxLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="35dp"
         android:text="@string/tax_label"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/labelSub"
-        app:layout_constraintTop_toBottomOf="@+id/tv_showData" />
+        app:layout_constraintTop_toBottomOf="@+id/yourOrderTitle" />
 
     <TextView
         android:id="@+id/taxField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="98dp"
+        android:layout_marginStart="136dp"
         android:layout_marginTop="4dp"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/subtotalField"
         app:layout_constraintTop_toBottomOf="@+id/taxLabel" />
-
-    <EditText
-        android:id="@+id/tv_showData"
-        android:layout_width="415dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="72dp"
-        android:background="@android:color/holo_green_light"
-        android:ems="10"
-        android:gravity="center"
-        android:inputType="textPersonName"
-        android:text="@string/your_order_title"
-        android:textSize="55sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/addOrderButton"
@@ -85,12 +84,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="35dp"
         android:text="@string/subtotal_label"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_showData" />
+        app:layout_constraintTop_toBottomOf="@+id/yourOrderTitle" />
 
     <TextView
         android:id="@+id/subtotalField"
