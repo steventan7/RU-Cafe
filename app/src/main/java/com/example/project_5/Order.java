@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class Order {
     static private int trackingNumber = 1;
     static public final double NJTAX = 1.06625;
-    static public Order currOrder;
-    static public ArrayList<Order> storeOrders;
+    static public Order currOrder = new Order();
+    static public ArrayList<Order> storeOrders = new ArrayList<>();
     private int orderNumber;
     private ArrayList<MenuItem> listOfMenuItems;
 

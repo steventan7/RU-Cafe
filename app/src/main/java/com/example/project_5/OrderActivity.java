@@ -27,7 +27,7 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
     private TextView totalLabel;
     private ListView orderListView;
     private Button addOrderButton;
-    private ArrayList<String> menuItemDesc;
+    private ArrayList<String> menuItemDesc = new ArrayList<>();
     private ArrayAdapter<String> adapter;
 
     /**
