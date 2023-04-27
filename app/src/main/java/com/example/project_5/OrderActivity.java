@@ -136,6 +136,9 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         addOrderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(Order.storeOrders == null) {
+                    Order.storeOrders = new ArrayList<>();
+                }
                 if(Order.storeOrders.isEmpty()) {
                     Order.storeOrders.add(Order.currOrder);
                     Order.currOrder = null;
