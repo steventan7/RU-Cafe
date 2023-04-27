@@ -42,6 +42,8 @@ public class StoreOrderActivity extends AppCompatActivity {
         orderNumSpinner = findViewById(R.id.orderNumSpinner);
         removeOrderButton = findViewById(R.id.removeOrderButton);
         orderPriceField = findViewById(R.id.orderPrice);
+        updateOrderNumList();
+        updateListView();
         setRemoveOrderButtonOnClick();
     }
 
@@ -61,7 +63,14 @@ public class StoreOrderActivity extends AppCompatActivity {
             return;
         }
         int orderNum = Integer.parseInt(orderNumSpinner.getSelectedItem().toString());
-        setArrayList(Order.storeOrders.get(orderNum));
+        int orderIndex = 0;
+        while(orderIndex < Order.storeOrders.size() &&
+                Order.storeOrders.get(orderIndex).orderNumber() != orderNum) {
+            orderIndex++;
+        }
+        Toast.makeText(this, "PASSED " + orderIndex,
+                Toast.LENGTH_LONG).show();
+        setArrayList(Order.storeOrders.get(orderIndex));
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
                 menuItemListDesc);
         orderListView.setAdapter(adapter);
@@ -75,7 +84,7 @@ public class StoreOrderActivity extends AppCompatActivity {
      * @param selectedOrder Order which is currently selecting by the Spinner.
      */
     private void setArrayList(Order selectedOrder) {
-        if(menuItemListDesc != null) {
+        if(menuItemListDesc == null) {
             menuItemListDesc = new ArrayList<>();
         } else {
             menuItemListDesc.clear();
@@ -101,6 +110,9 @@ public class StoreOrderActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_item, orderNumbers);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         orderNumSpinner.setAdapter(adapter);
+        if(!orderNumbers.isEmpty()) {
+            orderNumSpinner.setSelection(0);
+        }
     }
 
     /**
