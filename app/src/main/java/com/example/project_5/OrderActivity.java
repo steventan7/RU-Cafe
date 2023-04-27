@@ -41,6 +41,7 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         addOrderButton = findViewById(R.id.addOrderButton);
         updateAdapter();
         updatePrices();
+        setAddOrderButtonOnClick();
     }
     private void updateAdapter() {
         menuItemDesc.clear();
@@ -53,7 +54,7 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         orderListView.setAdapter(adapter);
     }
     private void updatePrices() {
-        if(Order.currOrder.menuList().isEmpty()) {
+        if(Order.currOrder == null || Order.currOrder.menuList().isEmpty()) {
             subTotalLabel.setText(R.string.zero_price);
             taxLabel.setText(R.string.zero_price);
             totalLabel.setText(R.string.zero_price);
@@ -87,16 +88,18 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         AlertDialog dialog = alert.create();
         dialog.show();
     }
-    private void setRemoveOrderButtonOnClick() {
+    private void setAddOrderButtonOnClick() {
         addOrderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(Order.storeOrders.isEmpty()) {
-                    int duration = Toast.LENGTH_SHORT;
-                    //Toast toast = Toast.makeText(getApplicationContext(),
-                            //R.string.empty_order_list_alert, duration);
+                    Order.storeOrders.add(Order.currOrder);
+                    Order.currOrder = null;
+                    Toast.makeText(getApplicationContext(),
+                            R.string.add_order_message, Toast.LENGTH_SHORT).show();
                 } else {
-                    int duration = Toast.LENGTH_SHORT;
+                    Toast.makeText(getApplicationContext(),
+                            R.string.empty_order_alert, Toast.LENGTH_SHORT).show();
                 }
             }
         });
